@@ -19,8 +19,9 @@ Windows.
 ## Installation
 
 Just download either `invert_proclaim.sh` (Linux or Mac OS) or
-`invert_proclaim.ps1` (Windows). No special Edit the Script file and ensure
-the dependency paths are set correctly.
+`invert_proclaim.ps1` (Windows). No special installation is required.
+
+Edit the Script file and ensure the dependency paths are set correctly.
 
 ## Usage
 
