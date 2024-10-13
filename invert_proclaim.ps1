@@ -1,7 +1,7 @@
 # invert_proclaim.ps1
 #
-# Invert colours of dark slides in PDFs printed from Proclaim and output 6 per
-# page
+# Invert colours of dark slides in PDFs printed from Proclaim and output 1 (or
+# optionally 6) slides per page
 #
 # Dependencies:
 #
