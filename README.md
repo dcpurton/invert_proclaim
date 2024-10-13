@@ -28,7 +28,7 @@ Edit the Script file and ensure the dependency paths are set correctly.
 - Print the Proclaim slides from the web interface as a PDF, which will
   give you lots of slides per page.
 - Under Linux or Mac OS:
-    - Run `./invert_proclaim.sh <proclaimslides.pdf>`[6up]
+    - Run `./invert_proclaim.sh <proclaimslides.pdf> [6up]`
     - Including 6up on the command-line will output the presentation 6 slides
       per page, otherwise one slide is output per page.
 - Under Windows
