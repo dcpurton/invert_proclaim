@@ -29,13 +29,13 @@ Edit the Script file and ensure the dependency paths are set correctly.
   give you lots of slides per page.
 - Under Linux or Mac OS:
     - Run `./invert_proclaim.sh <proclaimslides.pdf> [6up]`
-    - Including 6up on the command-line will output the presentation 6 slides
-      per page, otherwise one slide is output per page.
+    - Including `6up` on the command-line will output the presentation 6
+      slides per page, otherwise one slide is output per page.
 - Under Windows
     - Right click on `invert_proclaim.ps1` and select "Run with PowerShell".
     - A file selection dialog box will open so you can choose your PDF file
       that you just made.
-    - Set $6up in the script to $true to output six slides per page.
+    - Set `$6up` in the script to `$true` to output six slides per page.
 - The conversion can take a little while, so just wait a bit.
 - Slides are inverted if they are more dark than light, otherwise they
   are left the same.
