@@ -71,7 +71,9 @@ $PDFIMAGES -all "$1" $PROCIMAGEROOT
 
 for i in $PROCIMAGEROOT*; do
     if $CONVERT $i -resize 1x1 -threshold 50% txt:- | grep -q '#000000'; then
-        $MOGRIFY -channel RGB -negate $i;
+        $MOGRIFY -resize 800x800\> -channel RGB -negate $i;
+    else
+        $MOGRIFY -resize 800x800\> $i;
     fi
 done
 

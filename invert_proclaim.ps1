@@ -107,7 +107,12 @@ ForEach($image in $images)
   $colour = & $MagickExePath $arguments
   if ($colour -match "#000000")
   {
-    $arguments = "mogrify", "-channel", "RGB", "-negate", $image
+    $arguments = "mogrify", "-resize", "800x800", "-channel", "RGB", "-negate", $image
+    & $MagickExePath $arguments
+  }
+  else
+  {
+    $arguments = "mogrify", "-resize", "800x800", $image
     & $MagickExePath $arguments
   }
 }
