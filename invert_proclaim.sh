@@ -49,7 +49,7 @@ if [ ! -f "$MOGRIFY" ]; then
   exit
 fi
 if [ ! -f "$MONTAGE" ]; then
-  echo "Cannot find ImageMagick 'mogrify' in path. Exiting."
+  echo "Cannot find ImageMagick 'montage' in path. Exiting."
   exit
 fi
 
