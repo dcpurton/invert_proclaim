@@ -12,11 +12,11 @@
 # Usage:
 #
 # - Print a Proclaim presentation from the web view as PDF and download it to your computer.
-# - Run invert_proclaim.sh <Proclaim PDF file>
+# - Run invert_proclaim.sh <Proclaim PDF file> [6up]
 # - The inverted PDF is placed in the same directory as the PDF to be converted.
 # 
 #
-# Copyright (c) 2022, David Purton <dcpurton@marshwiggle.net>
+# Copyright (c) 2022-2024, David Purton <dcpurton@marshwiggle.net>
 #  
 # Permission to use, copy, modify, and/or distribute this software for  
 # any purpose with or without fee is hereby granted, provided that the  
@@ -77,7 +77,11 @@ for i in $PROCIMAGEROOT*; do
     fi
 done
 
-$MONTAGE -title "$PDFBASE" -tile 2x3 -geometry +100+150 -page A4 tmp.* -set label '%[fx:t+1]' -pointsize 24 -frame 5 "$INVERTEDPDF"
+if [ -n "$2" ]; then
+  $MONTAGE -title "$PDFBASE" -tile 2x3 -geometry +100+150 -page A4 tmp.* -set label '%[fx:t+1]' -pointsize 24 -frame 5 "$INVERTEDPDF"
+else
+  $CONVERT tmp.* -gravity SouthEast -pointsize 24 -fill black -annotate +10+10 'Page %[fx:t+1]' "$INVERTEDPDF"
+fi
 
 cp "$INVERTEDPDF" "$PROCCURDIR"
 

@@ -28,7 +28,7 @@
 #   be converted.
 # 
 #
-# Copyright (c) 2022, David Purton <dcpurton@marshwiggle.net>
+# Copyright (c) 2022-2024, David Purton <dcpurton@marshwiggle.net>
 #  
 # Permission to use, copy, modify, and/or distribute this software for  
 # any purpose with or without fee is hereby granted, provided that the  
@@ -46,6 +46,7 @@
 $PdfImagesExePath = "C:\Path\To\xpdf-tools-win-4.04\bin64\pdfimages.exe"
 $MagickExePath = "C:\Path\To\ImageMagick-7.1.0-58-portable-Q16-x64\magick.exe"
 $InitialDirectory = "$env:USERPROFILE\Downloads"
+$6up = $false
 
 if (-not(Test-Path $PdfImagesExePath -Pathtype leaf))
 {
@@ -118,8 +119,16 @@ ForEach($image in $images)
 }
 
 # Create new pdf
-$arguments = "montage", "-title", $pdfbase, "-tile", "2x3", "-geometry", "+100+150", "-page", "A4", "tmp*", "-set", "label", "%[fx:t+1]", "-pointsize", "24", "-frame", "5", $invertedpdfquoted
-& $MagickExePath $arguments
+if ($6up)
+{
+  $arguments = "montage", "-title", $pdfbase, "-tile", "2x3", "-geometry", "+100+150", "-page", "A4", "tmp*", "-set", "label", "%[fx:t+1]", "-pointsize", "24", "-frame", "5", $invertedpdfquoted
+  & $MagickExePath $arguments
+}
+else
+{
+  $arguments = "convert", "tmp*", "-gravity", "SouthEast", "-pointsize", "24", "-fill", "black", "-annotate", "+10+10", "Page %[fx:t+1]", $invertedpdfquoted
+  & $MagickExePath $arguments
+}
 
 # cleanup
 Copy-Item $invertedpdf -Destination $curdir
