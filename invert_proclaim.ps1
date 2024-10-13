@@ -43,8 +43,8 @@
 # ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS  
 # SOFTWARE.  
 
-$PdfImagesExePath = "C:\Path\To\xpdf-tools-win-4.04\bin64\pdfimages.exe"
-$MagickExePath = "C:\Path\To\ImageMagick-7.1.0-58-portable-Q16-x64\magick.exe"
+$PdfImagesExePath = "C:\Path\To\xpdf-tools-win-4.05\bin64\pdfimages.exe"
+$MagickExePath = "C:\Path\To\ImageMagick-7.1.1-39-portable-Q16-x64\magick.exe"
 $InitialDirectory = "$env:USERPROFILE\Downloads"
 $6up = $false
 
